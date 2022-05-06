@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background-image: url("img/telalogin.jpg") !important;
+    background-size: 100%;
+    
+}
+
+.content {
+    height: 100%;
+
+    display: flex;
+    justify-content:  center;
+    align-items: center !important;
+}
+
+.box-content {
+   width: 300px !important;
+   background: #161614a6;
+   padding: 15px;
+   border-radius: 5px;
+   color: #FFF
+}
