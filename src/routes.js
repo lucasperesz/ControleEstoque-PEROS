@@ -2,6 +2,7 @@ const express = require("express");
 
 const UserController = require("./controllers/UserController");
 const CategoryController = require("./controllers/CategoryController");
+const PersonController = require("./controllers/PersonController");
 const ProductController = require("./controllers/ProductController");
 const ProductSoldController = require("./controllers/ProductSoldController");
 const CartController = require("./controllers/CartController");
@@ -38,6 +39,13 @@ routes.post("/categorys", CategoryController.store);
 routes.get("/categorys/edit/:id", CategoryController.edit);
 routes.put("/categorys/edit/:id", CategoryController.update);
 routes.delete("/categorys/delete/:id", CategoryController.destroy);
+
+routes.get("/personlist", PersonController.index);
+routes.get("/person", PersonController.create);
+routes.post("/person", PersonController.store);
+routes.get("/person/edit/:id", PersonController.edit);
+routes.put("/person/edit/:id", PersonController.update);
+routes.delete("/person/delete/:id", PersonController.destroy);
 
 routes.get("/productslist", ProductController.index);
 routes.post("/productslist", ProductController.index);

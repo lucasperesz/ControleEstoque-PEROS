@@ -1,0 +1,41 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Editar Pessoa</title>
+    <link rel="stylesheet" href="/person.css"/>
+{% endblock %}    
+
+{% block content %}
+    <div class="content">
+        <h4 style="margin-top: 60px">Editar Pessoa</h4>
+        <form action="/person/edit/{{person._id}}?_method=PUT" method="post">
+            <div class="row">
+                <p class="message-error">{{message}}</p>
+                <div class="col-md-3">
+                    <label class="form-label">Nome da Pessoa *</label>
+                    <input class="form-control" type="text" name="name" placeholder="Nome da Pessoa" value="{{person.name}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Endereço *</label>
+                    <input class="form-control" type="text" name="address" placeholder="Endereço *" value="{{person.address}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Cidade *</label>
+                    <input class="form-control" type="text" name="city" placeholder="Cidade" value="{{person.city}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Telefone *</label>
+                    <input class="form-control" type="text" name="phone" placeholder="Telefone" value="{{person.phone}}"/>
+                </div>
+                
+            </div>
+
+            <div class="row" style="margin-top: 30px"> 
+                <button class="btn btn-primary" style="width: 100px" type="submit">Salvar</button>
+                <a href="/personlist" class="btn btn-danger" style="width: 100px; margin-left: 30px; color: #fff !important;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+        
+        
