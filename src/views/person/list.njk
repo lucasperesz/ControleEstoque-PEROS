@@ -1,0 +1,76 @@
+{% extends "layout.njk" %}
+{% block head %}
+    <title>Clientes</title>
+    <link rel="stylesheet" href="/person.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <h4>Cadastro de Clientes</h4>
+
+        <form class="form-product" action="/person" method="post" onSubmit="registerPerson(event)">
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="form-label">Nome do Cliente *</label>
+                    <input class="form-control" type="text" name="name" placeholder="Pessoa" value="{{name}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Endereço *</label>
+                    <input class="form-control" type="text" name="address" placeholder="Endereço" value="{{address}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Cidade *</label>
+                    <input class="form-control" type="text" name="city" placeholder="Cidade" value="{{city}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Telefone *</label>
+                    <input class="form-control" type="text" name="phone" placeholder="Telefone" value="{{phone}}"/>
+                </div>
+                
+                <div class="col-md-3">
+                    <br/>
+                    <button class="btn btn-primary bnt-product" type="submit">Cadastrar</button>
+                </div>
+            </div>
+        </form>
+        <br>
+
+        <h4>Listagem de Clientes</h4>
+        
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Telefone</th>
+                <th>Ação</th>
+            </tr>
+            {% for person in person %}
+                <tr>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.address }}</td>
+                    <td>{{ person.city }}</td>
+                    <td>{{ person.phone }}</td>
+                    <td>
+                        <div class="action">
+                            <a href="/person/edit/{{person._id}}"><i class="bi bi-pencil-fill"></i></a>       
+                            <form  name="myform" action="/person/delete/{{person._id}}?_method=DELETE" method="post" onSubmit="deletePerson(event)">
+                                <button type="submit" class="delete"><i class="bi bi-trash-fill"></i></button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+<script>   
+    window.addEventListener('keydown',function(e){if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13){if(e.target.nodeName=='INPUT'&&e.target.type=='text'&&e.target.name=='city'){e.preventDefault();return false;}}},true);
+
+    function deletePerson(e) {
+        if(!window.confirm("Deseja realmente deletar a pessoa ?")) {
+            e.returnValue = false; 
+        }
+    }
+</script>
+{% endblock %}
