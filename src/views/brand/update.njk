@@ -1,0 +1,33 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+    <title>Editar Marca</title>
+    <link rel="stylesheet" href="/brand.css"/>
+{% endblock %}    
+
+{% block content %}
+    <div class="content">
+        <h4 style="margin-top: 60px">Editar Marca</h4>
+        <form action="/brand/edit/{{brand._id}}?_method=PUT" method="post">
+            <div class="row">
+                <p class="message-error">{{message}}</p>
+                <div class="col-md-3">
+                    <label class="form-label">Nome da Marca *</label>
+                    <input class="form-control" type="text" name="name" placeholder="Nome da Marca" value="{{brand.name}}"/>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Quantidade *</label>
+                    <input class="form-control" type="text" name="quantity" placeholder="Quantidade" value="{{brand.quantity}}"/>
+                </div>
+                
+            </div>
+
+            <div class="row" style="margin-top: 30px"> 
+                <button class="btn btn-primary" style="width: 100px" type="submit">Salvar</button>
+                <a href="/brandlist" class="btn btn-danger" style="width: 100px; margin-left: 30px; color: #fff !important;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+        
+        
