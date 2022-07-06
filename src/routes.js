@@ -3,6 +3,7 @@ const express = require("express");
 const UserController = require("./controllers/UserController");
 const CategoryController = require("./controllers/CategoryController");
 const PersonController = require("./controllers/PersonController");
+const BrandController = require("./controllers/BrandController");
 const ProductController = require("./controllers/ProductController");
 const ProductSoldController = require("./controllers/ProductSoldController");
 const CartController = require("./controllers/CartController");
@@ -46,6 +47,13 @@ routes.post("/person", PersonController.store);
 routes.get("/person/edit/:id", PersonController.edit);
 routes.put("/person/edit/:id", PersonController.update);
 routes.delete("/person/delete/:id", PersonController.destroy);
+
+routes.get("/brandlist", BrandController.index);
+routes.get("/brand", BrandController.create);
+routes.post("/brand", BrandController.store);
+routes.get("/brand/edit/:id", BrandController.edit);
+routes.put("/brand/edit/:id", BrandController.update);
+routes.delete("/brand/delete/:id", BrandController.destroy);
 
 routes.get("/productslist", ProductController.index);
 routes.post("/productslist", ProductController.index);

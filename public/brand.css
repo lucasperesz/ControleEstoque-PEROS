@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+.content {
+    margin-top: 60px;
+}
+
+form input.form-control  {
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+form.form-brand {
+    display: flex;
+}
+
+p.message-error {
+    color: #FD6259;
+}
+
+button.bnt-brand {
+    width: 120px
+}
+
+form.search {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.btn-secondary {
+    margin-left: 10px;
+}
+
+div.action {
+    display: flex;
+    font-size: 20px;
+}
+
+.bi-pencil-fill {
+    color: #FFC447;
+}
+
+.bi-pencil-fill:hover {
+    color: #d2a138;
+}
+
+div.action button.delete {
+    margin-left: 10px;
+    background: none;
+    color: #FD6259
+}
+
+div.action button.delete:hover {
+    color: #da4a43
+}
